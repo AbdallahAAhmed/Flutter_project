@@ -1,7 +1,9 @@
 import 'package:doctorappointment/constraints.dart';
+import 'package:doctorappointment/screens/login.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
+  static const String routeName = '/onboarding_page';
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
@@ -86,10 +88,11 @@ class OnboardingScreen extends StatelessWidget {
                   color: mainColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Center(
+                child: Center(
                   child: TextButton(
-                    onPressed: null,
-                    child: Text(
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed(LoginScreen.routeName),
+                    child: const Text(
                       'Start',
                       style: TextStyle(
                         color: Colors.white,
