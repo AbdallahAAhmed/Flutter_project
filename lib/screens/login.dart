@@ -1,4 +1,5 @@
 import 'package:doctorappointment/constraints.dart';
+import 'package:doctorappointment/screens/home.dart';
 import 'package:doctorappointment/screens/sign_up.dart';
 import 'package:doctorappointment/widgets/elevate_button.dart';
 import 'package:doctorappointment/widgets/text_field.dart';
@@ -129,6 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 20,
                     heightSize: 50,
                     isBold: true,
+                    onPress: () => Navigator.of(context).pushNamed(HomeScreen.routeName),
                   ),
                   const SizedBox(height: 30),
                   Row(
@@ -223,89 +225,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-// Scaffold(
-//       backgroundColor: Colors.white,
-//       resizeToAvoidBottomInset: false,
-//       body: Stack(
-//         children: [
-//           const Align(
-//             alignment: Alignment.topCenter,
-//             child: Image(
-//               image: AssetImage('assets/images/Vector 1.png'),
-//             ),
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.only(top: 8.0),
-//             child: AppBar(
-//               elevation: 0,
-//               backgroundColor: Colors.transparent,
-//               centerTitle: true,
-//               title: const Text('Login',
-//                   style: TextStyle(
-//                     color: Colors.white,
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.bold,
-//                   )),
-//             ),
-//           ),
-//           const Align(
-//             alignment: Alignment.bottomCenter,
-//             child: Image(
-//               image: AssetImage('assets/images/Vector 3.png'),
-//             ),
-//           ),
-//           ListView(
-//             children: [
-//               Container(
-//                 padding: const EdgeInsets.only(
-//                     right: 42, left: 42, top: 150, bottom:0),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-                    
-//                     const SizedBox(height: 60),
-//                     Column(
-//                       crossAxisAlignment: CrossAxisAlignment.stretch,
-//                       children: [
-                        
-//                         const SizedBox(height: 5),
-//                         TextFieldWidget(
-//                           title: 'Password',
-//                           icon: Icons.lock_open_outlined,
-//                           subTitle: '**********',
-//                           suffix: const Image(
-//                             image: AssetImage('assets/images/closed_eye.png'),
-//                             width: 15,
-//                             height: 14,
-//                           ),
-//                           obscure: true,
-//                         ),
-//                         Row(
-                          
-//                           children: [
-                            
-                            
-//                           ],
-//                         ),
-//                         const SizedBox(height: 20),
-//                         ElevateButton(
-//                           title: 'Sign In',
-//                           fontSize: 20,
-//                           heightSize: 50,
-//                           isBold: true,
-//                         ),
-//                         const SizedBox(height: 35),
-                        
-                        
-//                       ],
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );

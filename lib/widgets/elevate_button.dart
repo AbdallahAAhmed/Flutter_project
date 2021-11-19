@@ -7,6 +7,7 @@ class ElevateButton extends StatelessWidget {
   final double? fontSize;
   final double? heightSize;
   final double? widthSize;
+  Function()? onPress;
   bool isBold;
   ElevateButton(
       {Key? key,
@@ -14,25 +15,29 @@ class ElevateButton extends StatelessWidget {
       this.fontSize,
       this.heightSize,
       this.widthSize,
+        this.onPress,
       this.isBold = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: heightSize,
-      width: widthSize,
-      decoration: BoxDecoration(
-        color: mainColor,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Center(
-        child: Text(
-          title!,
-          style: TextStyle(
-            fontSize: fontSize,
-            fontWeight: isBold ? FontWeight.bold : null,
-            color: Colors.white,
+    return InkWell(
+      onTap: onPress,
+      child: Container(
+        height: heightSize,
+        width: widthSize,
+        decoration: BoxDecoration(
+          color: mainColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: Text(
+            title!,
+            style: TextStyle(
+              fontSize: fontSize,
+              fontWeight: isBold ? FontWeight.bold : null,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
