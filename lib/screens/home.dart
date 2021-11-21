@@ -1,5 +1,4 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/widgets/bottom_bar.dart';
 import 'package:doctorappointment/widgets/home_list.dart';
 import 'package:doctorappointment/widgets/search_container.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +88,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
+      // bottomNavigationBar: const BottomBar(),
     );
   }
 }

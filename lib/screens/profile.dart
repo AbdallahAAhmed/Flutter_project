@@ -1,7 +1,6 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_user_appointments.dart';
 import 'package:doctorappointment/models/user_appointment.dart';
-import 'package:doctorappointment/widgets/bottom_bar.dart';
 import 'package:doctorappointment/widgets/user_appointments_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -124,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: const BottomBar(),
+      // bottomNavigationBar: const BottomBar(),
     );
   }
 }

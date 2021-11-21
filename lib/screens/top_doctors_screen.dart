@@ -1,6 +1,5 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_doctors.dart';
-import 'package:doctorappointment/widgets/bottom_bar.dart';
 import 'package:doctorappointment/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +54,7 @@ class TopDoctorsScreen extends StatelessWidget {
           },
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
+      // bottomNavigationBar: const BottomBar(),
     );
   }
 }

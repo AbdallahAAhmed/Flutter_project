@@ -1,5 +1,5 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/screens/login.dart';
+import 'package:doctorappointment/screens/init_home.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -90,8 +90,8 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: TextButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(LoginScreen.routeName),
+                    onPressed: () => Navigator.of(context)
+                        .popAndPushNamed(InitHome.routeName),
                     child: const Text(
                       'Start',
                       style: TextStyle(

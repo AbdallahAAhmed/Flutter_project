@@ -1,4 +1,3 @@
-import 'package:doctorappointment/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../constraints.dart';
@@ -58,9 +57,8 @@ class SearchScreen extends StatelessWidget {
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                   ),
-                  suffixIcon: IconButton(
-                      onPressed: null, icon: Icon(Icons.close)),
-
+                  suffixIcon:
+                      IconButton(onPressed: null, icon: Icon(Icons.close)),
                 ),
               ),
             ),
@@ -81,7 +79,8 @@ class SearchScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: const [
-                          Icon(Icons.subdirectory_arrow_right, color: textColor),
+                          Icon(Icons.subdirectory_arrow_right,
+                              color: textColor),
                           Text(
                             'Dr. Jenny Roy',
                             style: TextStyle(
@@ -89,7 +88,6 @@ class SearchScreen extends StatelessWidget {
                               color: textColor,
                             ),
                           ),
-
                         ],
                       ),
                       const SizedBox(height: 10),
@@ -99,15 +97,13 @@ class SearchScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                 );
-
               }),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
+      // bottomNavigationBar: const BottomBar(),
     );
   }
 }

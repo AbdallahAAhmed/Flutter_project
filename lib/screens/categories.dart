@@ -1,6 +1,5 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_categories_list.dart';
-import 'package:doctorappointment/widgets/bottom_bar.dart';
 import 'package:doctorappointment/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +51,7 @@ class CategoriesScreen extends StatelessWidget {
           },
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
+      // bottomNavigationBar: const BottomBar(),
     );
   }
 }
