@@ -1,15 +1,29 @@
 import 'package:doctorappointment/constraints.dart';
+import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DoctorCard extends StatelessWidget {
+  final String? id;
   final String? name;
   final String? category;
   final double? price;
   final double? rate;
   final String? image;
-  const DoctorCard(
-      {Key? key, this.name, this.category, this.price, this.rate, this.image})
-      : super(key: key);
+  Function()? callbackFun;
+  DoctorCard({
+    Key? key,
+    this.name,
+    this.category,
+    this.price,
+    this.rate,
+    this.image,
+    this.id,
+    this.callbackFun,
+  }) : super(key: key);
+  void selectDoctor(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(DoctorDetailsScreen.routeName, arguments: id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +56,8 @@ class DoctorCard extends StatelessWidget {
           ),
           Text(
             'Dr. $name',
-            style: const TextStyle(
-              fontSize: 15,
+            style: TextStyle(
+              fontSize: name!.length > 16 ? 11 : 15,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -87,7 +101,7 @@ class DoctorCard extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(mainColor),
               ),
-              onPressed: () {},
+              onPressed: callbackFun,
               child: const Text(
                 'Book Now',
                 style: TextStyle(

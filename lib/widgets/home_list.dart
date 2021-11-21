@@ -2,6 +2,7 @@ import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/doctor_model.dart';
 import 'package:doctorappointment/models/dummy_doctors.dart';
 import 'package:doctorappointment/screens/categories.dart';
+import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:doctorappointment/screens/top_doctors_screen.dart';
 import 'package:doctorappointment/widgets/category_container.dart';
 import 'package:doctorappointment/widgets/top_doctor_card.dart';
@@ -102,6 +103,10 @@ class HomeList extends StatelessWidget {
                     rate: currentDoctor.rate,
                     price: currentDoctor.price,
                     category: currentDoctor.department,
+                    id: currentDoctor.id,
+                    callbackFun: () => Navigator.of(context).pushNamed(
+                        DoctorDetailsScreen.routeName,
+                        arguments: currentDoctor.id),
                   ),
                 );
               },

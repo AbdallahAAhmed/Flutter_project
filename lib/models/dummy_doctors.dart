@@ -2,7 +2,7 @@ import 'package:doctorappointment/models/doctor_model.dart';
 
 List<Doctor> doctors = [
   Doctor(
-    id: 1,
+    id: '0',
     name: 'Jenny Roy',
     image: 'assets/images/doctors/doctor1.png',
     department: 'Cardiologist',
@@ -12,10 +12,10 @@ List<Doctor> doctors = [
         "Dr. Jenny Roy is the top most cardiologist\n specialist in Dhaka Medical College hospital\n at Dhaka.He achived several award for his\n wonderful contribution in her own field.He is\n available for private consultation.",
     experienceYears: 6,
     hospitalName: 'Dhaka Medical College Hospital',
-    patientsCount: 1100,
+    patientsCount: 1078,
   ),
   Doctor(
-    id: 2,
+    id: '1',
     name: 'Edward George',
     image: 'assets/images/doctors/doctor2.png',
     department: 'Cardiologist',
@@ -28,7 +28,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 3,
+    id: '2',
     name: 'Charles Burton',
     image: 'assets/images/doctors/doctor3.png',
     department: 'Cardiologist',
@@ -41,7 +41,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 4,
+    id: '3',
     name: 'Mark Hall',
     image: 'assets/images/doctors/doctor4.png',
     department: 'Cardiologist',
@@ -54,7 +54,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 5,
+    id: '4',
     name: 'Peter Leavitt',
     image: 'assets/images/doctors/doctor5.png',
     department: 'Cardiologist',
@@ -67,7 +67,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 6,
+    id: '5',
     name: 'Jeremy Stone',
     image: 'assets/images/doctors/doctor6.png',
     department: 'Cardiologist',
@@ -80,7 +80,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 7,
+    id: '6',
     name: 'Martin Arrowsmith',
     image: 'assets/images/doctors/doctor7.png',
     department: 'Cardiologist',
@@ -93,7 +93,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 8,
+    id: '7',
     name: 'Jefferson Jefferson',
     image: 'assets/images/doctors/doctor8.png',
     department: 'Orthopedic',
@@ -106,7 +106,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 9,
+    id: '8',
     name: 'Timothy Flyte',
     image: 'assets/images/doctors/doctor9.png',
     department: 'Orthopedic',
@@ -119,7 +119,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 10,
+    id: '9',
     name: 'Jennifer Paige',
     image: 'assets/images/doctors/doctor10.png',
     department: 'Orthopedic',
@@ -132,7 +132,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 11,
+    id: '10',
     name: 'Bernard Rieux',
     image: 'assets/images/doctors/doctor11.png',
     department: 'Orthopedic',
@@ -145,7 +145,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 12,
+    id: '11',
     name: 'Henry Higgins',
     image: 'assets/images/doctors/doctor12.png',
     department: 'Orthopedic',
@@ -158,7 +158,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 13,
+    id: '12',
     name: 'Hastie Lanyon',
     image: 'assets/images/doctors/doctor13.png',
     department: 'Orthopedic',
@@ -171,7 +171,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 14,
+    id: '13',
     name: 'Montgomery Montgomery',
     image: 'assets/images/doctors/doctor14.png',
     department: 'Orthopedic',
@@ -184,7 +184,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 15,
+    id: '14',
     name: 'Leonard Doull',
     image: 'assets/images/doctors/doctor15.png',
     department: 'Dentist',
@@ -197,7 +197,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 16,
+    id: '15',
     name: 'Dick Diver',
     image: 'assets/images/doctors/doctor16.png',
     department: 'Dentist',
@@ -210,7 +210,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 17,
+    id: '16',
     name: 'John Quimper',
     image: 'assets/images/doctors/doctor17.png',
     department: 'Dentist',
@@ -223,7 +223,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 18,
+    id: '17',
     name: 'Rumack',
     image: 'assets/images/doctors/doctor18.png',
     department: 'Dentist',
@@ -236,7 +236,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 19,
+    id: '18',
     name: 'Leo Bain',
     image: 'assets/images/doctors/doctor19.png',
     department: 'Dentist',
@@ -249,7 +249,7 @@ List<Doctor> doctors = [
     patientsCount: 1100,
   ),
   Doctor(
-    id: 20,
+    id: '19',
     name: 'Martin Arrowsmith',
     image: 'assets/images/doctors/doctor20.png',
     department: 'Dentist',

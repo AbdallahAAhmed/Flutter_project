@@ -1,5 +1,6 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_doctors.dart';
+import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:doctorappointment/widgets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +51,10 @@ class TopDoctorsScreen extends StatelessWidget {
               price: currentDoctor.price,
               rate: currentDoctor.rate,
               category: currentDoctor.department,
+              id: currentDoctor.id,
+              callbackFun: () => Navigator.of(context).pushNamed(
+                  DoctorDetailsScreen.routeName,
+                  arguments: currentDoctor.id),
             );
           },
         ),

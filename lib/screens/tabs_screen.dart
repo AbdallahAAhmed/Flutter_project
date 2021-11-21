@@ -7,15 +7,15 @@ import 'package:doctorappointment/screens/search.dart';
 import 'package:doctorappointment/screens/top_doctors_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class InitHome extends StatefulWidget {
+class TabsHome extends StatefulWidget {
   static const String routeName = '/init_home';
-  const InitHome({Key? key}) : super(key: key);
+  const TabsHome({Key? key}) : super(key: key);
 
   @override
-  _InitHomeState createState() => _InitHomeState();
+  _TabsHomeState createState() => _TabsHomeState();
 }
 
-class _InitHomeState extends State<InitHome> {
+class _TabsHomeState extends State<TabsHome> {
   int _currentScreenIndex = 0;
   final List _screens = const [
     HomeScreen(),

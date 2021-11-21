@@ -1,16 +1,25 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TopDoctorCard extends StatelessWidget {
+  final String? id;
   final String? name;
   final String? category;
   final double? price;
   final double? rate;
   final String? image;
-  const TopDoctorCard(
-      {Key? key, this.name, this.category, this.price, this.rate, this.image})
+  Function()? callbackFun;
+  TopDoctorCard(
+      {Key? key,
+      this.name,
+      this.category,
+      this.price,
+      this.rate,
+      this.image,
+      this.id,
+      this.callbackFun})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,7 +105,7 @@ class TopDoctorCard extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(mainColor),
                 ),
-                onPressed: () {},
+                onPressed: callbackFun,
                 child: const Text(
                   'Book',
                   style: TextStyle(

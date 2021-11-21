@@ -1,7 +1,7 @@
 import 'package:doctorappointment/screens/categories.dart';
 import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:doctorappointment/screens/home.dart';
-import 'package:doctorappointment/screens/init_home.dart';
+import 'package:doctorappointment/screens/tabs_screen.dart';
 import 'package:doctorappointment/screens/login.dart';
 import 'package:doctorappointment/screens/onboarding.dart';
 import 'package:doctorappointment/screens/profile.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ProfileScreen.routeName: (context) => const ProfileScreen(),
         DoctorDetailsScreen.routeName: (context) => const DoctorDetailsScreen(),
         SearchScreen.routeName: (context) => const SearchScreen(),
-        InitHome.routeName: (context) => const InitHome(),
+        TabsHome.routeName: (context) => const TabsHome(),
       },
     );
   }

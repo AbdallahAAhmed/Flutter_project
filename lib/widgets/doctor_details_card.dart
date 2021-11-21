@@ -47,8 +47,8 @@ class DoctorDetailsCard extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
-                  child: const Image(
-                    image: AssetImage('assets/images/doctors/doctor10.png'),
+                  child: Image(
+                    image: AssetImage(image!),
                     fit: BoxFit.cover,
                     width: 50,
                     height: 50,
@@ -60,17 +60,17 @@ class DoctorDetailsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Dr. Jennifer Paige',
+                  Text(
+                    'Dr. $name',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: name!.length > 16 ? 12 : 15,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Orthopedic',
+                    category!,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),
@@ -78,7 +78,7 @@ class DoctorDetailsCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Dhaka Medical College Hospital",
+                    hospitalName!,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),
@@ -89,11 +89,12 @@ class DoctorDetailsCard extends StatelessWidget {
             ],
           ),
           Row(
-            children: const [
-              Icon(Icons.star_rate_sharp, color: Colors.orangeAccent, size: 20),
+            children: [
+              const Icon(Icons.star_rate_sharp,
+                  color: Colors.orangeAccent, size: 20),
               Text(
-                '5.8',
-                style: TextStyle(
+                '$rate',
+                style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                 ),

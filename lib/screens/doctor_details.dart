@@ -1,4 +1,5 @@
 import 'package:doctorappointment/constraints.dart';
+import 'package:doctorappointment/models/dummy_doctors.dart';
 import 'package:doctorappointment/widgets/calender_card.dart';
 import 'package:doctorappointment/widgets/check_appointment_time.dart';
 import 'package:doctorappointment/widgets/doctor_details_card.dart';
@@ -11,6 +12,9 @@ class DoctorDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _doctorId = ModalRoute.of(context)!.settings.arguments as String?;
+    final _selectedDoctor =
+        doctors.firstWhere((doctor) => doctor.id == _doctorId);
     return Scaffold(
       backgroundColor: backGroundColor,
       appBar: AppBar(
@@ -22,7 +26,13 @@ class DoctorDetailsScreen extends StatelessWidget {
           Container(
             padding:
                 const EdgeInsets.only(right: 32, left: 32, top: 10, bottom: 50),
-            child: const DoctorDetailsCard(),
+            child: DoctorDetailsCard(
+              name: _selectedDoctor.name,
+              category: _selectedDoctor.department,
+              hospitalName: _selectedDoctor.hospitalName,
+              image: _selectedDoctor.image,
+              rate: _selectedDoctor.rate,
+            ),
           ),
           Expanded(
             flex: 2,
@@ -54,17 +64,17 @@ class DoctorDetailsScreen extends StatelessWidget {
                             ),
                             const SizedBox(width: 15),
                             Column(
-                              children: const [
+                              children: [
                                 Text(
-                                  '1100+',
-                                  style: TextStyle(
+                                  '${_selectedDoctor.patientsCount}+',
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                SizedBox(height: 5),
-                                Text(
+                                const SizedBox(height: 5),
+                                const Text(
                                   'Pateints',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -88,17 +98,17 @@ class DoctorDetailsScreen extends StatelessWidget {
                             const SizedBox(width: 15),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: [
                                 Text(
-                                  '6 Years',
-                                  style: TextStyle(
+                                  '${_selectedDoctor.experienceYears} Years',
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                SizedBox(height: 5),
-                                Text(
+                                const SizedBox(height: 5),
+                                const Text(
                                   'Experiance',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -130,8 +140,8 @@ class DoctorDetailsScreen extends StatelessWidget {
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
+                            children: [
+                              const Text(
                                 'About Doctor',
                                 style: TextStyle(
                                   color: textColor,
@@ -139,10 +149,10 @@ class DoctorDetailsScreen extends StatelessWidget {
                                   fontSize: 15,
                                 ),
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Text(
-                                'Dr. Zak Wolf is the top most cardiologist specialist in Dhaka Medical College hospital at Dhaka.He achived several award for his wonderful contribution in her own field.He is available for private consultation.',
-                                style: TextStyle(
+                                'Dr. ${_selectedDoctor.name} is the top most cardiologist specialist in Dhaka Medical College hospital at Dhaka.He achived several award for his wonderful contribution in her own field.He is available for private consultation.',
+                                style: const TextStyle(
                                   color: textColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15,
