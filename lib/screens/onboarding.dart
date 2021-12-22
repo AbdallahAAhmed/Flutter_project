@@ -1,6 +1,6 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/on_boarding_model.dart';
-import 'package:doctorappointment/network/remote/local/cache_helper.dart';
+import 'package:doctorappointment/network/local/cache_helper.dart';
 import 'package:doctorappointment/screens/login.dart';
 import 'package:doctorappointment/componenets/build_onboarding_item.dart';
 import 'package:flutter/material.dart';

@@ -2,7 +2,7 @@ import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_user_appointments.dart';
 import 'package:doctorappointment/models/user_appointment.dart';
 import 'package:doctorappointment/componenets/user_appointments_card.dart';
-import 'package:doctorappointment/network/remote/local/cache_helper.dart';
+import 'package:doctorappointment/network/local/cache_helper.dart';
 import 'package:doctorappointment/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

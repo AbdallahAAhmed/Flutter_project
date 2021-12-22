@@ -2,9 +2,11 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:doctorappointment/bloc_observer.dart';
+import 'package:doctorappointment/constraints.dart';
+import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
 import 'package:doctorappointment/modules/login_cubit/cubit.dart';
+import 'package:doctorappointment/network/local/cache_helper.dart';
 import 'package:doctorappointment/network/remote/dio_helper.dart';
-import 'package:doctorappointment/network/remote/local/cache_helper.dart';
 import 'package:doctorappointment/screens/categories.dart';
 import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:doctorappointment/screens/home.dart';
@@ -16,14 +18,16 @@ import 'package:doctorappointment/screens/search.dart';
 import 'package:doctorappointment/screens/sign_up.dart';
 import 'package:doctorappointment/screens/top_doctors_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   BlocOverrides.runZoned(
     () {
       // Use blocs...
       LoginCubit();
+      AppCubit();
     },
     blocObserver: MyBlocObserver(),
   );
@@ -32,20 +36,21 @@ void main() async{
   await CacheHelper.init();
   String route;
   bool onBoarding = CacheHelper.getData(key: 'onBoarding');
-  String token = CacheHelper.getData(key: 'token');
+  token = CacheHelper.getData(key: 'token');
 
-  if(onBoarding != null) {
-    if(token != null) {
+  if (onBoarding != null) {
+    if (token != null) {
       route = TabsHome.routeName;
-    }else {
+    } else {
       route = LoginScreen.routeName;
     }
-  }else {
+  } else {
     route = OnboardingScreen.routeName;
   }
 
-  runApp(MyApp(routePage: route,));
-
+  runApp(MyApp(
+    routePage: route,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -54,24 +59,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Raleway',
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (BuildContext context) => AppCubit()..getCategoriesData()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Raleway',
+        ),
+        debugShowCheckedModeBanner: false,
+        initialRoute: routePage,
+        routes: {
+          OnboardingScreen.routeName: (context) => const OnboardingScreen(),
+          LoginScreen.routeName: (context) => const LoginScreen(),
+          SignUpScreen.routeName: (context) => const SignUpScreen(),
+          HomeScreen.routeName: (context) => HomeScreen(),
+          TopDoctorsScreen.routeName: (context) => const TopDoctorsScreen(),
+          CategoriesScreen.routeName: (context) => const CategoriesScreen(),
+          ProfileScreen.routeName: (context) => const ProfileScreen(),
+          DoctorDetailsScreen.routeName: (context) =>
+              const DoctorDetailsScreen(),
+          SearchScreen.routeName: (context) => const SearchScreen(),
+          TabsHome.routeName: (context) => const TabsHome(),
+        },
       ),
-      debugShowCheckedModeBanner: false,
-      initialRoute: routePage,
-      routes: {
-        OnboardingScreen.routeName: (context) => const OnboardingScreen(),
-        LoginScreen.routeName: (context) => const LoginScreen(),
-        SignUpScreen.routeName: (context) => const SignUpScreen(),
-        HomeScreen.routeName: (context) => HomeScreen(),
-        TopDoctorsScreen.routeName: (context) => const TopDoctorsScreen(),
-        CategoriesScreen.routeName: (context) => const CategoriesScreen(),
-        ProfileScreen.routeName: (context) => const ProfileScreen(),
-        DoctorDetailsScreen.routeName: (context) => const DoctorDetailsScreen(),
-        SearchScreen.routeName: (context) => const SearchScreen(),
-        TabsHome.routeName: (context) => const TabsHome(),
-      },
     );
   }
 }

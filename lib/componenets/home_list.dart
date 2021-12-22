@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeList extends StatelessWidget {
-  const HomeList({Key key}) : super(key: key);
+  final int categoriesLen;
+  final dynamic categories;
+  const HomeList({Key key, this.categoriesLen, this.categories}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,16 +55,15 @@ class HomeList extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              CategoryContainer(
-                  title: 'Cardiologist', image: 'assets/images/heart.png'),
-              CategoryContainer(
-                  title: 'Orthopedic', image: 'assets/images/osteoporosis.png'),
-              CategoryContainer(
-                  title: 'Dentist', image: 'assets/images/tooth.png'),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(categoriesLen, (index) {
+                var currentCategory = categories[index];
+                return CategoryContainer(title: currentCategory.name, image: currentCategory.image) ;
+              }),
+            ),
           ),
           const SizedBox(height: 25),
           Row(

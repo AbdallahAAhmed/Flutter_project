@@ -25,7 +25,7 @@ class CategoryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image(
-            image: AssetImage(image),
+            image: NetworkImage(image),
             width: 150,
             height: 100,
           ),

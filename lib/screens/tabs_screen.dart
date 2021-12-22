@@ -1,69 +1,56 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/screens/home.dart';
+import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
+import 'package:doctorappointment/modules/app_cubit/app_states.dart';
 import 'package:flutter/material.dart';
-import 'package:doctorappointment/screens/categories.dart';
-import 'package:doctorappointment/screens/profile.dart';
-import 'package:doctorappointment/screens/search.dart';
-import 'package:doctorappointment/screens/top_doctors_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TabsHome extends StatefulWidget {
+class TabsHome extends StatelessWidget {
   static const String routeName = '/init_home';
   const TabsHome({Key key}) : super(key: key);
 
   @override
-  _TabsHomeState createState() => _TabsHomeState();
-}
-
-class _TabsHomeState extends State<TabsHome> {
-  int _currentScreenIndex = 0;
-  final List _screens = [
-    HomeScreen(),
-    const TopDoctorsScreen(),
-    const SearchScreen(),
-    const CategoriesScreen(),
-    const ProfileScreen()
-  ];
-
-  void _updateScreenIndex(int value) {
-    setState(() {
-      _currentScreenIndex = value;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screens[_currentScreenIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentScreenIndex,
-        onTap: _updateScreenIndex,
-        selectedItemColor: mainColor,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            label: 'home',
-            icon: FaIcon(FontAwesomeIcons.home),
-          ),
-          BottomNavigationBarItem(
-            label: 'doctors',
-            icon: FaIcon(FontAwesomeIcons.stethoscope),
-          ),
-          BottomNavigationBarItem(
-            label: 'search',
-            icon: FaIcon(FontAwesomeIcons.search),
-          ),
-          BottomNavigationBarItem(
-            label: 'category',
-            icon: FaIcon(FontAwesomeIcons.clipboardList),
-          ),
-          BottomNavigationBarItem(
-            label: 'profile',
-            icon: FaIcon(FontAwesomeIcons.user),
-          ),
-        ],
-      ),
+    return BlocConsumer<AppCubit, AppStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        AppCubit cubit = AppCubit.get(context);
+        return Scaffold(
+        body: cubit.screens[cubit.currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: cubit.currentIndex,
+          onTap: (index) 
+          {
+            cubit.changeScreenIndex(index);
+          },
+          selectedItemColor: mainColor,
+          unselectedItemColor: Colors.grey,
+          items: const [
+            BottomNavigationBarItem(
+              label: 'home',
+              icon: FaIcon(FontAwesomeIcons.home),
+            ),
+            BottomNavigationBarItem(
+              label: 'doctors',
+              icon: FaIcon(FontAwesomeIcons.stethoscope),
+            ),
+            BottomNavigationBarItem(
+              label: 'search',
+              icon: FaIcon(FontAwesomeIcons.search),
+            ),
+            BottomNavigationBarItem(
+              label: 'category',
+              icon: FaIcon(FontAwesomeIcons.clipboardList),
+            ),
+            BottomNavigationBarItem(
+              label: 'profile',
+              icon: FaIcon(FontAwesomeIcons.user),
+            ),
+          ],
+        ),
+      );
+      },
     );
   }
 }
