@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ElevateButton extends StatelessWidget {
-  final String? title;
-  final double? fontSize;
-  final double? heightSize;
-  final double? widthSize;
-  Function()? onPress;
+  final String title;
+  final double fontSize;
+  final double heightSize;
+  final double widthSize;
+  Function() onPress;
   bool isBold;
   ElevateButton(
-      {Key? key,
+      {Key key,
       this.title,
       this.fontSize,
       this.heightSize,
@@ -32,7 +32,7 @@ class ElevateButton extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            title!,
+            title,
             style: TextStyle(
               fontSize: fontSize,
               fontWeight: isBold ? FontWeight.bold : null,

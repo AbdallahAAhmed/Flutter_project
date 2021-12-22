@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TopDoctorCard extends StatelessWidget {
-  final String? id;
-  final String? name;
-  final String? category;
-  final double? price;
-  final double? rate;
-  final String? image;
-  Function()? callbackFun;
+  final String id;
+  final String name;
+  final String category;
+  final double price;
+  final double rate;
+  final String image;
+  Function() callbackFun;
   TopDoctorCard(
-      {Key? key,
+      {Key key,
       this.name,
       this.category,
       this.price,
@@ -40,7 +40,7 @@ class TopDoctorCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50),
             child: Image(
-              image: AssetImage(image!),
+              image: AssetImage(image),
               fit: BoxFit.cover,
             ),
           ),

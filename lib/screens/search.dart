@@ -5,7 +5,7 @@ import '../constraints.dart';
 class SearchScreen extends StatelessWidget {
   static const String routeName = '/search_page';
 
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

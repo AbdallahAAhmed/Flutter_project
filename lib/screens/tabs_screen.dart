@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TabsHome extends StatefulWidget {
   static const String routeName = '/init_home';
-  const TabsHome({Key? key}) : super(key: key);
+  const TabsHome({Key key}) : super(key: key);
 
   @override
   _TabsHomeState createState() => _TabsHomeState();
@@ -17,12 +17,12 @@ class TabsHome extends StatefulWidget {
 
 class _TabsHomeState extends State<TabsHome> {
   int _currentScreenIndex = 0;
-  final List _screens = const [
+  final List _screens = [
     HomeScreen(),
-    TopDoctorsScreen(),
-    SearchScreen(),
-    CategoriesScreen(),
-    ProfileScreen()
+    const TopDoctorsScreen(),
+    const SearchScreen(),
+    const CategoriesScreen(),
+    const ProfileScreen()
   ];
 
   void _updateScreenIndex(int value) {

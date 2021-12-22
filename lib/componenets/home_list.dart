@@ -4,18 +4,18 @@ import 'package:doctorappointment/models/dummy_doctors.dart';
 import 'package:doctorappointment/screens/categories.dart';
 import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:doctorappointment/screens/top_doctors_screen.dart';
-import 'package:doctorappointment/widgets/category_container.dart';
-import 'package:doctorappointment/widgets/top_doctor_card.dart';
+import 'package:doctorappointment/componenets/category_container.dart';
+import 'package:doctorappointment/componenets/top_doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeList extends StatelessWidget {
-  const HomeList({Key? key}) : super(key: key);
+  const HomeList({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<Doctor> _topDoctorRate = doctors.where((doctor) {
-      return doctor.rate! >= 4.6;
+      return doctor.rate >= 4.6;
     }).toList();
     return Container(
       width: double.infinity,

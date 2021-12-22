@@ -2,7 +2,7 @@ import 'package:doctorappointment/constraints.dart';
 import 'package:flutter/material.dart';
 
 class CheckAppointmentTimeCard extends StatelessWidget {
-  const CheckAppointmentTimeCard({Key? key}) : super(key: key);
+  const CheckAppointmentTimeCard({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

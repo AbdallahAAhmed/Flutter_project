@@ -1,18 +1,18 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_doctors.dart';
-import 'package:doctorappointment/widgets/calender_card.dart';
-import 'package:doctorappointment/widgets/check_appointment_time.dart';
-import 'package:doctorappointment/widgets/doctor_details_card.dart';
+import 'package:doctorappointment/componenets/calender_card.dart';
+import 'package:doctorappointment/componenets/check_appointment_time.dart';
+import 'package:doctorappointment/componenets/doctor_details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {
   static const String routeName = '/doctor_details_page';
-  const DoctorDetailsScreen({Key? key}) : super(key: key);
+  const DoctorDetailsScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _doctorId = ModalRoute.of(context)!.settings.arguments as String?;
+    final _doctorId = ModalRoute.of(context).settings.arguments as String;
     final _selectedDoctor =
         doctors.firstWhere((doctor) => doctor.id == _doctorId);
     return Scaffold(

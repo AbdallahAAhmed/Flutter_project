@@ -1,11 +1,17 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/widgets/home_list.dart';
-import 'package:doctorappointment/widgets/search_container.dart';
+import 'package:doctorappointment/componenets/home_list.dart';
+import 'package:doctorappointment/componenets/search_container.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = '/home_screen';
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,10 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 15),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () 
+              {
+                
+              },
               icon: const Icon(Icons.location_on, size: 30),
             ),
           ),

@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class DoctorDetailsCard extends StatelessWidget {
-  final String? name;
-  final String? image;
-  final double? rate;
-  final String? category;
-  final String? hospitalName;
-  const DoctorDetailsCard({
-    Key? key,
+class UserAppointmentCard extends StatelessWidget {
+  final String name;
+  final DateTime appointmentTime;
+  final DateTime appointmentDate;
+  final String image;
+  final double rate;
+  final String category;
+  const UserAppointmentCard({
+    Key key,
     this.name,
+    this.appointmentTime,
+    this.appointmentDate,
     this.image,
     this.rate,
     this.category,
-    this.hospitalName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 22),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.withOpacity(0.6)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: Offset.zero,
-          ),
-        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,29 +44,29 @@ class DoctorDetailsCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image(
-                    image: AssetImage(image!),
+                    image: AssetImage(image),
                     fit: BoxFit.cover,
-                    width: 50,
-                    height: 50,
+                    width: 80,
+                    height: 80,
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 15),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Dr. $name',
-                    style: TextStyle(
-                      fontSize: name!.length > 16 ? 12 : 15,
+                    style: const TextStyle(
+                      fontSize: 15,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    category!,
+                    DateFormat.MEd().format(appointmentDate),
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),
@@ -78,7 +74,7 @@ class DoctorDetailsCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    hospitalName!,
+                    DateFormat('hh:mm a').format(appointmentTime),
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),

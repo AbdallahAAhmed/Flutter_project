@@ -3,20 +3,25 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TextFieldWidget extends StatelessWidget {
-  final String? title;
-  final String? subTitle;
-  final IconData? icon;
-  final TextInputType? keyboard;
-  final Widget? suffix;
-  bool? obscure;
+  final String title;
+  final String subTitle;
+  final IconData icon;
+  final TextInputType keyboard;
+  final Widget suffix;
+  bool obscure;
+  final Function validate;
+  final TextEditingController controller;
   TextFieldWidget(
-      {Key? key,
+      {Key key,
       this.title,
       this.icon,
       this.subTitle,
       this.suffix,
-      required this.obscure,
-      this.keyboard})
+      @required this.obscure,
+      this.keyboard,
+      this.validate,
+      this.controller,
+      })
       : super(key: key);
 
   @override
@@ -25,7 +30,7 @@ class TextFieldWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          title!,
+          title,
           style: TextStyle(
             fontSize: 15,
             color: Colors.black.withOpacity(0.7),
@@ -37,8 +42,10 @@ class TextFieldWidget extends StatelessWidget {
             color: const Color(0xff8C8FA5).withOpacity(0.2),
             borderRadius: BorderRadius.circular(15),
           ),
-          child: TextField(
-            obscureText: obscure! ? true : false,
+          child: TextFormField(
+            controller: controller,
+            validator: validate,
+            obscureText: obscure ? true : false,
             keyboardType: keyboard,
             decoration: InputDecoration(
               focusedBorder: const OutlineInputBorder(

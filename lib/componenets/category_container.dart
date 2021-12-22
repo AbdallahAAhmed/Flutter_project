@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CategoryContainer extends StatelessWidget {
-  final String? image;
-  final String? title;
-  const CategoryContainer({Key? key, this.image, this.title}) : super(key: key);
+  final String image;
+  final String title;
+  const CategoryContainer({Key key, this.image, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,12 @@ class CategoryContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: AssetImage(image!),
+              image: AssetImage(image),
               width: 50,
               height: 55,
             ),
             Text(
-              title!,
+              title,
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,

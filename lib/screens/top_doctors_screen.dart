@@ -1,12 +1,12 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_doctors.dart';
 import 'package:doctorappointment/screens/doctor_details.dart';
-import 'package:doctorappointment/widgets/doctor_card.dart';
+import 'package:doctorappointment/componenets/doctor_card.dart';
 import 'package:flutter/material.dart';
 
 class TopDoctorsScreen extends StatelessWidget {
   static const String routeName = '/top_doctors';
-  const TopDoctorsScreen({Key? key}) : super(key: key);
+  const TopDoctorsScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

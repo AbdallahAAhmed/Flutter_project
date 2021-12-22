@@ -1,13 +1,15 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_user_appointments.dart';
 import 'package:doctorappointment/models/user_appointment.dart';
-import 'package:doctorappointment/widgets/user_appointments_card.dart';
+import 'package:doctorappointment/componenets/user_appointments_card.dart';
+import 'package:doctorappointment/network/remote/local/cache_helper.dart';
+import 'package:doctorappointment/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String routeName = '/profile_page';
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,14 @@ class ProfileScreen extends StatelessWidget {
         elevation: 0.0,
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () 
+            {
+              CacheHelper.removeData(key: 'token').then((value) {
+                if(value){
+                  Navigator.of(context).popAndPushNamed(LoginScreen.routeName);
+                }
+              });
+            },
             child: const Padding(
               padding: EdgeInsets.only(right: 8.0),
               child: Text(

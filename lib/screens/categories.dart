@@ -1,11 +1,11 @@
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/dummy_categories_list.dart';
-import 'package:doctorappointment/widgets/category_card.dart';
+import 'package:doctorappointment/componenets/category_card.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {
   static const String routeName = '/categories_page';
-  const CategoriesScreen({Key? key}) : super(key: key);
+  const CategoriesScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
 import 'package:doctorappointment/screens/login.dart';
-import 'package:doctorappointment/widgets/elevate_button.dart';
-import 'package:doctorappointment/widgets/text_field.dart';
+import 'package:doctorappointment/componenets/elevate_button.dart';
+import 'package:doctorappointment/componenets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const String routeName = '/sign_up_page';
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
