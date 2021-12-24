@@ -5,10 +5,12 @@ import 'package:doctorappointment/bloc_observer.dart';
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
 import 'package:doctorappointment/modules/login_cubit/cubit.dart';
+import 'package:doctorappointment/modules/register_cubit/register_cubit.dart';
 import 'package:doctorappointment/network/local/cache_helper.dart';
 import 'package:doctorappointment/network/remote/dio_helper.dart';
 import 'package:doctorappointment/screens/categories.dart';
 import 'package:doctorappointment/screens/doctor_details.dart';
+import 'package:doctorappointment/screens/doctors_by_category.dart';
 import 'package:doctorappointment/screens/home.dart';
 import 'package:doctorappointment/screens/tabs_screen.dart';
 import 'package:doctorappointment/screens/login.dart';
@@ -28,6 +30,7 @@ void main() async {
       // Use blocs...
       LoginCubit();
       AppCubit();
+      RegisterCubit();
     },
     blocObserver: MyBlocObserver(),
   );
@@ -61,7 +64,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (BuildContext context) => AppCubit()..getCategoriesData()),
+        BlocProvider(
+            create: (BuildContext context) => AppCubit()
+              ..getCategoriesData()
+              ..getTopDoctorRate()
+              ..getDoctors()
+              ..getUserProfile()
+              ..getUserAppointments()),
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -72,8 +81,8 @@ class MyApp extends StatelessWidget {
         routes: {
           OnboardingScreen.routeName: (context) => const OnboardingScreen(),
           LoginScreen.routeName: (context) => const LoginScreen(),
-          SignUpScreen.routeName: (context) => const SignUpScreen(),
-          HomeScreen.routeName: (context) => HomeScreen(),
+          SignUpScreen.routeName: (context) => SignUpScreen(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
           TopDoctorsScreen.routeName: (context) => const TopDoctorsScreen(),
           CategoriesScreen.routeName: (context) => const CategoriesScreen(),
           ProfileScreen.routeName: (context) => const ProfileScreen(),
@@ -81,6 +90,7 @@ class MyApp extends StatelessWidget {
               const DoctorDetailsScreen(),
           SearchScreen.routeName: (context) => const SearchScreen(),
           TabsHome.routeName: (context) => const TabsHome(),
+          DoctorsByCategory.routeName: (context) => const DoctorsByCategory(),
         },
       ),
     );

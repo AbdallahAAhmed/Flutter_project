@@ -7,7 +7,7 @@ class DoctorCard extends StatelessWidget {
   final String id;
   final String name;
   final String category;
-  final double price;
+  final String price;
   final double rate;
   final String image;
   Function() callbackFun;
@@ -49,7 +49,7 @@ class DoctorCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image(
-                image: AssetImage(image),
+                image: NetworkImage(image),
                 fit: BoxFit.cover,
               ),
             ),

@@ -44,4 +44,25 @@ class DioHelper {
       data: data,
     );
   }
+
+
+  static Future<Response> postRegisterData({
+    @required String url,
+    @required Map<String, dynamic> data,
+    Map<String, dynamic> query,
+    String token,
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+    };
+    return dio.post(
+      url,
+      data: data,
+      options : Options(
+        followRedirects: false,
+        validateStatus: (status) { return status < 500; }
+    ),
+    );
+  }
+
 }

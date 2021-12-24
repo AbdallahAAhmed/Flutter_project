@@ -21,7 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         AppCubit cubit = AppCubit.get(context);
-        return cubit.userCategories != null
+        return cubit.userCategories != null && cubit.topDoctorsModel != null && cubit.doctorsList != null
+        && cubit.userAppointments != null 
             ? Scaffold(
                 backgroundColor: mainColor,
                 appBar: AppBar(
@@ -97,10 +98,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: SearchContainer(),
                       ),
                       const SizedBox(height: 25),
-                      Expanded(child: HomeList(
+                      Expanded(
+                          child: HomeList(
                         categoriesLen: cubit.userCategories.data.length,
                         categories: cubit.userCategories.data,
-                        )),
+                        topDoctorLen: cubit.topDoctorsModel.data.results.length,
+                        topDoctorData: cubit.topDoctorsModel.data.results,
+                      )),
                     ],
                   ),
                 ),

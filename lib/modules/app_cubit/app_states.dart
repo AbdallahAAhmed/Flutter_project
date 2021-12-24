@@ -9,3 +9,23 @@ class AppLoadingCategoriesDataState extends AppStates {}
 class AppSuccessCategoriesDataState extends AppStates {}
 
 class AppErrorCategoriesDataState extends AppStates {}
+
+class AppLoadingTopRateDoctorsDataState extends AppStates {}
+
+class AppSuccessTopRateDoctorsDataState extends AppStates {}
+
+class AppErrorTopRateDoctorsDataState extends AppStates {}
+
+class AppLoadingDoctorsByCategoryIdDataState extends AppStates {}
+
+class AppSuccessDoctorsByCategoryIdDataState extends AppStates {}
+
+class AppErrorDoctorsByCategoryIdDataState extends AppStates {}
+
+class AppSuccessUserProfileDataState extends AppStates {}
+
+class AppErrorUserProfileDataState extends AppStates {}
+
+class AppSuccessUserAppointmentsState extends AppStates {}
+
+class AppErrorUserAppointmentsState extends AppStates {}

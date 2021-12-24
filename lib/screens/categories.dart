@@ -1,5 +1,4 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/models/dummy_categories_list.dart';
 import 'package:doctorappointment/componenets/category_card.dart';
 import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
 import 'package:doctorappointment/modules/app_cubit/app_states.dart';
@@ -44,6 +43,7 @@ class CategoriesScreen extends StatelessWidget {
                 body: Container(
                   padding: const EdgeInsets.all(20),
                   child: GridView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: cubit.userCategories.data.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(

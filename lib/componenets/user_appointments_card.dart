@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class UserAppointmentCard extends StatelessWidget {
   final String name;
-  final DateTime appointmentTime;
-  final DateTime appointmentDate;
+  final String appointmentTime;
+  final String appointmentDate;
   final String image;
   final double rate;
   final String category;
@@ -44,7 +43,7 @@ class UserAppointmentCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image(
-                    image: AssetImage(image),
+                    image: NetworkImage(image),
                     fit: BoxFit.cover,
                     width: 80,
                     height: 80,
@@ -66,7 +65,7 @@ class UserAppointmentCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    DateFormat.MEd().format(appointmentDate),
+                    appointmentDate,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),
@@ -74,7 +73,7 @@ class UserAppointmentCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    DateFormat('hh:mm a').format(appointmentTime),
+                    appointmentTime,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.black.withOpacity(0.7),
