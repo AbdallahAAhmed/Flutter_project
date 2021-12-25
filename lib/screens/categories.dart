@@ -2,6 +2,7 @@ import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/componenets/category_card.dart';
 import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
 import 'package:doctorappointment/modules/app_cubit/app_states.dart';
+import 'package:doctorappointment/screens/doctors_by_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,9 +54,14 @@ class CategoriesScreen extends StatelessWidget {
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       var currentCategory = cubit.userCategories.data[index];
-                      return CategoryCard(
-                        name: currentCategory.name,
-                        image: currentCategory.image,
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(DoctorsByCategory.routeName, arguments: currentCategory.id);
+                        },
+                        child: CategoryCard(
+                          name: currentCategory.name,
+                          image: currentCategory.image,
+                        ),
                       );
                     },
                   ),
