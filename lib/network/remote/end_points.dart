@@ -6,7 +6,17 @@ const String allDoctors = 'doctors?sort=rate&size=16';
 const String PROFILE = 'users/profile';
 const String USER_APPOINTMENT = 'appointments';
 
+
 String getDoctorsByCategoryIdApi(String id)
 {
   return 'doctors?categoryId=$id';
+}
+
+String doctorsDetailsUrl(String id) {
+  return 'doctors/$id';
+}
+
+String searchUrl(String key)
+{
+  return 'doctors?name=$key';
 }

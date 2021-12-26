@@ -1,9 +1,12 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/models/dummy_doctors.dart';
 import 'package:doctorappointment/componenets/calender_card.dart';
 import 'package:doctorappointment/componenets/check_appointment_time.dart';
 import 'package:doctorappointment/componenets/doctor_details_card.dart';
+import 'package:doctorappointment/models/list_doctors_by_top_rate.dart';
+import 'package:doctorappointment/modules/doctor_details/cubit.dart';
+import 'package:doctorappointment/modules/doctor_details/states.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {
@@ -13,25 +16,44 @@ class DoctorDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _doctorId = ModalRoute.of(context).settings.arguments as String;
-    final _selectedDoctor =
-        doctors.firstWhere((doctor) => doctor.id == _doctorId);
-    return Scaffold(
-      backgroundColor: backGroundColor,
-      appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.black)),
-      body: Column(
+    return BlocProvider(
+      create: (BuildContext context) => DoctorsDetailsCubit()..getDoctorsDetails(id: _doctorId),
+      child: BlocConsumer<DoctorsDetailsCubit, DoctorsDetailsStates>(
+        listener: (context, state) {},
+        builder: (context, state) 
+        {
+          DoctorsDetailsCubit cubit = DoctorsDetailsCubit.get(context);
+
+          return Scaffold(
+          backgroundColor: backGroundColor,
+          appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              iconTheme: const IconThemeData(color: Colors.black)),
+          body: state is! DoctorsDetailsLoadingState
+          ? buildDoctorDetails(doctor: cubit.doctorDetails.data, function: () => cubit.changeTimeButton())
+          : const Center(child: CircularProgressIndicator()),
+        );
+        } 
+      ),
+    );
+  }
+  Widget buildDoctorDetails({
+    @required Results doctor,
+    @required Function function,
+  })
+  {
+    return Column(
         children: [
           Container(
             padding:
                 const EdgeInsets.only(right: 32, left: 32, top: 10, bottom: 50),
             child: DoctorDetailsCard(
-              name: _selectedDoctor.name,
-              category: _selectedDoctor.department,
-              hospitalName: _selectedDoctor.hospitalName,
-              image: _selectedDoctor.image,
-              rate: _selectedDoctor.rate,
+              name: doctor.name,
+              category: doctor.category.name,
+              hospitalName: 'London',
+              image: doctor.image,
+              rate: doctor.rate,
             ),
           ),
           Expanded(
@@ -64,17 +86,17 @@ class DoctorDetailsScreen extends StatelessWidget {
                             ),
                             const SizedBox(width: 15),
                             Column(
-                              children: [
+                              children: const [
                                 Text(
-                                  '${_selectedDoctor.patientsCount}+',
-                                  style: const TextStyle(
+                                  '1100 +',
+                                  style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                const SizedBox(height: 5),
-                                const Text(
+                                SizedBox(height: 5),
+                                Text(
                                   'Pateints',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -98,17 +120,17 @@ class DoctorDetailsScreen extends StatelessWidget {
                             const SizedBox(width: 15),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
-                                  '${_selectedDoctor.experienceYears} Years',
-                                  style: const TextStyle(
+                                  '6 Years',
+                                  style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                const SizedBox(height: 5),
-                                const Text(
+                                SizedBox(height: 5),
+                                Text(
                                   'Experiance',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -151,7 +173,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Dr. ${_selectedDoctor.name} is the top most cardiologist specialist in Dhaka Medical College hospital at Dhaka.He achived several award for his wonderful contribution in her own field.He is available for private consultation.',
+                                'Dr. ${doctor.name} is the top most cardiologist specialist in Dhaka Medical College hospital at Dhaka.He achived several award for his wonderful contribution in her own field.He is available for private consultation.',
                                 style: const TextStyle(
                                   color: textColor,
                                   fontWeight: FontWeight.w500,
@@ -181,19 +203,18 @@ class DoctorDetailsScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(3, (index) {
-                              return const CheckAppointmentTimeCard();
-                            }),
-                          ),
-                          Row(
-                            children: List.generate(2, (index) {
-                              return const Padding(
-                                padding: EdgeInsets.only(right: 8.0),
-                                child: CheckAppointmentTimeCard(),
-                              );
-                            }),
+                          Wrap(
+                            alignment: WrapAlignment.spaceBetween,
+                            direction: Axis.horizontal,
+                            children: List.generate(doctor.times.length, (index) {
+                                return InkWell(
+                                  onTap: function,
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.0),
+                                    child: CheckAppointmentTimeCard(time: doctor.times, index: index,),
+                                  ),
+                                );
+                              }),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,7 +268,8 @@ class DoctorDetailsScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }
+
+

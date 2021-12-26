@@ -66,7 +66,6 @@ class CategoriesScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                // bottomNavigationBar: const BottomBar(),
               )
             : const Center(child: CircularProgressIndicator());
       },

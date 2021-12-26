@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:doctorappointment/bloc_observer.dart';
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
+import 'package:doctorappointment/modules/doctor_details/cubit.dart';
 import 'package:doctorappointment/modules/login_cubit/cubit.dart';
 import 'package:doctorappointment/modules/register_cubit/register_cubit.dart';
 import 'package:doctorappointment/network/local/cache_helper.dart';

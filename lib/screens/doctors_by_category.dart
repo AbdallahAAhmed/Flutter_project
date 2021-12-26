@@ -4,6 +4,7 @@ import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/list_doctors_by_top_rate.dart';
 import 'package:doctorappointment/modules/doctors_by_category_id.dart/cubit.dart';
 import 'package:doctorappointment/modules/doctors_by_category_id.dart/states.dart';
+import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -87,7 +88,11 @@ class DoctorsByCategory extends StatelessWidget {
                           rate: doctorsCat[index].rate,
                           category: doctorsCat[index].category.name,
                           id: doctorsCat[index].id,
-                          callbackFun: () => null,
+                          callbackFun: () {
+                            Navigator.of(context).pushNamed(
+                              DoctorDetailsScreen.routeName,
+                            arguments: doctorsCat[index].id);
+                          },
                           );
                       },
                     ),

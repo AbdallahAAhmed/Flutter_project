@@ -1,5 +1,9 @@
+import 'package:doctorappointment/componenets/top_doctor_card.dart';
+import 'package:doctorappointment/modules/search_cubit/cubit.dart';
+import 'package:doctorappointment/modules/search_cubit/states.dart';
+import 'package:doctorappointment/screens/doctor_details.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constraints.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -10,100 +14,115 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
-    return Scaffold(
-      backgroundColor: backGroundColor,
-      appBar: AppBar(
-        title: const Text(
-          'Search Doctors',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: mainColor,
-        elevation: 0.0,
-        actions: const [
-          IconButton(
-            onPressed: null,
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(31),
-        child: ListView(
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              child: TextField(
-                autofocus: true,
-                controller: searchController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                  ),
-                  prefixIcon: Icon(Icons.search, color: mainColor),
-                  prefixText: 'Dr. ',
-                  prefixStyle: TextStyle(
-                    color: textColor,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  suffixIcon:
-                      IconButton(onPressed: null, icon: Icon(Icons.close)),
+    var formKey = GlobalKey<FormState>();
+    return BlocProvider(
+      create: (BuildContext context) => SearchCubit(),
+      child: BlocConsumer<SearchCubit, SearchStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          SearchCubit cubit = SearchCubit.get(context);
+          return Scaffold(
+            backgroundColor: backGroundColor,
+            appBar: AppBar(
+              title: const Text(
+                'Search Doctors',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
+              centerTitle: true,
+              backgroundColor: mainColor,
+              elevation: 0.0,
+              actions: const [
+                IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.notifications,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Suggestions',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
+            body: Container(
+              padding: const EdgeInsets.all(31),
+              child: ListView(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    child: Form(
+                      key: formKey,
+                      child: TextFormField(
+                        validator: (String value){
+                          if(value.isEmpty)
+                          {
+                            return 'Enter Text to Search';
+                          }
+                          return null;
+                        },
+                        autofocus: true,
+                        controller: searchController,
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                          ),
+                          prefixIcon: const Icon(Icons.search, color: mainColor),
+                          prefixText: 'Dr. ',
+                          prefixStyle: const TextStyle(
+                            color: textColor,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          suffixIcon: IconButton(
+                              onPressed: (){
+                                searchController.clear();
+                              }, 
+                              icon: const Icon(Icons.close)),
+                        ),
+                        onFieldSubmitted: (String text)
+                        {
+                          if(formKey.currentState.validate())
+                          {
+                            cubit.getSearchData(text??'');
+                          }
+                        }
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  if(state is SearchLoadingState)
+                  const LinearProgressIndicator(),
+                  const SizedBox(height: 10.0),
+                  if(state is SearchSuccessState)
+                  Column(
+                    children: List.generate(cubit.model.data.results.length, (index) {
+                      var currentData = cubit.model.data.results[index];
+                        return Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: TopDoctorCard(
+                          name: currentData.name,
+                          category: currentData.category.name,
+                          image: currentData.image,
+                          price: currentData.price,
+                          rate: currentData.rate,
+                          callbackFun: () => Navigator.of(context).pushNamed(
+                            DoctorDetailsScreen.routeName, arguments: currentData.id),
+                        ),
+                      );
+                    }),
+                  ),
+                  if(state is SearchErrorState)
+                  Center(child: Text('Sorry, can\'t found doctor ${searchController.text}'),),
+                ],
               ),
             ),
-            const SizedBox(height: 20),
-            Column(
-              children: List.generate(6, (index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: const [
-                          Icon(Icons.subdirectory_arrow_right,
-                              color: textColor),
-                          Text(
-                            'Dr. Jenny Roy',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: textColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      const Divider(
-                        color: textColor,
-                        height: 5,
-                      ),
-                    ],
-                  ),
-                );
-              }),
-            ),
-          ],
-        ),
+          );
+        },
       ),
-      // bottomNavigationBar: const BottomBar(),
     );
   }
 }

@@ -1,6 +1,4 @@
 import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/models/dummy_user_appointments.dart';
-import 'package:doctorappointment/models/user_appointment.dart';
 import 'package:doctorappointment/componenets/user_appointments_card.dart';
 import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
 import 'package:doctorappointment/modules/app_cubit/app_states.dart';
