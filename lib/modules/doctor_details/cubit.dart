@@ -32,6 +32,33 @@ class DoctorsDetailsCubit extends Cubit<DoctorsDetailsStates>
     });
   }
 
+
+  void createUserAppointments({
+    @required String doctorId,
+    @required String time,
+    @required String day,
+  }) async 
+  {
+    emit(AppLoadingCreateUserAppointmentsState());
+    DioHelper.postCreateData(
+      url: CREATE_APPOINTMENT,
+      token: token,
+      data: {
+        "doctorId": doctorId,
+        "time": time,
+        "day": day,
+      },
+    ).then((value) {
+      print(value.data);
+      emit(AppSuccessCreateUserAppointmentsState());
+    }).catchError((error){
+      print(error.toString());
+      emit(AppErrorCreateUserAppointmentsState());
+    });
+  }
+
+
+
   bool isClicked = false;
   Color color = backGroundColor;
   Color colorText = const Color(0xff8C8FA5);

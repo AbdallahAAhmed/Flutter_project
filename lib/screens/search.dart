@@ -83,13 +83,13 @@ class SearchScreen extends StatelessWidget {
                               }, 
                               icon: const Icon(Icons.close)),
                         ),
-                        onFieldSubmitted: (String text)
+                        onChanged: (String text)
                         {
                           if(formKey.currentState.validate())
                           {
                             cubit.getSearchData(text??'');
                           }
-                        }
+                        },
                       ),
                     ),
                   ),

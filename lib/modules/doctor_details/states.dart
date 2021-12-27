@@ -11,3 +11,9 @@ class DoctorsDetailsErrorState extends DoctorsDetailsStates {}
 class DoctorDetailChangeColor extends DoctorsDetailsStates {}
 
 
+class AppLoadingCreateUserAppointmentsState extends DoctorsDetailsStates {}
+
+class AppSuccessCreateUserAppointmentsState extends DoctorsDetailsStates {}
+
+class AppErrorCreateUserAppointmentsState extends DoctorsDetailsStates {}
+

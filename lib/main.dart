@@ -69,9 +69,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => AppCubit()
               ..getCategoriesData()
               ..getTopDoctorRate()
-              ..getDoctors()
-              ..getUserProfile()
-              ..getUserAppointments()),
+              ..getDoctors()),
       ],
       child: MaterialApp(
         theme: ThemeData(

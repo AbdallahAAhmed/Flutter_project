@@ -20,8 +20,7 @@ class DioHelper {
     @required String url,
     Map<String, dynamic> query,
     String token,
-  }) async 
-  {
+  }) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
@@ -45,7 +44,6 @@ class DioHelper {
     );
   }
 
-
   static Future<Response> postRegisterData({
     @required String url,
     @required Map<String, dynamic> data,
@@ -58,11 +56,51 @@ class DioHelper {
     return dio.post(
       url,
       data: data,
-      options : Options(
-        followRedirects: false,
-        validateStatus: (status) { return status < 500; }
-    ),
+      options: Options(
+          followRedirects: false,
+          validateStatus: (status) {
+            return status < 500;
+          }),
     );
   }
 
+  static Future<Response> postCreateData({
+    @required String url,
+    @required Map<String, dynamic> data,
+    Map<String, dynamic> query,
+    String token,
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $token',
+    };
+    return dio.post(
+      url,
+      data: data,
+      options: Options(
+          followRedirects: false,
+          validateStatus: (status) {
+            return status < 500;
+          }),
+    );
+  }
+
+
+  static Future<Response> deleteAppointments({
+    @required String url,
+    @required String token,
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $token',
+    };
+    return await dio.deleteUri(
+      Uri.parse(url),
+      options: Options(
+          followRedirects: false,
+          validateStatus: (status) {
+            return status < 500;
+          }),
+    );
+  }
 }

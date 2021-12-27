@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, state) {
         AppCubit cubit = AppCubit.get(context);
         return cubit.userCategories != null && cubit.topDoctorsModel != null && cubit.doctorsList != null
-        && cubit.userAppointments != null 
+       
             ? Scaffold(
                 backgroundColor: mainColor,
                 appBar: AppBar(
