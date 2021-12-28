@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, state) {
         AppCubit cubit = AppCubit.get(context);
         return cubit.userCategories != null && cubit.topDoctorsModel != null && cubit.doctorsList != null
-       
             ? Scaffold(
                 backgroundColor: mainColor,
                 appBar: AppBar(
@@ -99,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const SizedBox(height: 25),
                       Expanded(
-                          child: HomeList(
+                        child: HomeList(
                         categoriesLen: cubit.userCategories.data.length,
                         categories: cubit.userCategories.data,
                         topDoctorLen: cubit.topDoctorsModel.data.results.length,
@@ -108,7 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                // bottomNavigationBar: const BottomBar(),
               )
             : const Center(child: CircularProgressIndicator());
       },

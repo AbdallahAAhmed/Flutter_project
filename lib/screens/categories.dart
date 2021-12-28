@@ -59,8 +59,8 @@ class CategoriesScreen extends StatelessWidget {
                           Navigator.of(context).pushNamed(DoctorsByCategory.routeName, arguments: currentCategory.id);
                         },
                         child: CategoryCard(
-                          name: currentCategory.name,
-                          image: currentCategory.image,
+                          name: currentCategory.name??'New',
+                          image: currentCategory.image?? 'https://www.freeiconspng.com/uploads/no-image-icon-21.png',
                         ),
                       );
                     },

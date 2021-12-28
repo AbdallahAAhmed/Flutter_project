@@ -78,8 +78,8 @@ class HomeList extends StatelessWidget {
                             arguments: currentCategory.id);
                       },
                       child: CategoryContainer(
-                          title: currentCategory.name,
-                          image: currentCategory.image),
+                          title: currentCategory.name??'New',
+                          image: currentCategory.image?? 'https://www.freeiconspng.com/uploads/no-image-icon-21.png'),
                     );
                   }),
                 ),
