@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:doctorappointment/componenets/show_toast.dart';
 import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/componenets/user_appointments_card.dart';
@@ -55,8 +57,12 @@ class ProfileScreen extends StatelessWidget {
                 onPressed: () 
                 {
                   CacheHelper.removeData(key: 'token').then((value) {
-                    if(value){
-                      Navigator.of(context).popAndPushNamed(LoginScreen.routeName);
+                    if(value)
+                    {
+                      Timer(const Duration(seconds: 5), (){
+                        Navigator.of(context).popAndPushNamed(LoginScreen.routeName);
+                      });
+                      
                     }
                   });
                 },

@@ -10,6 +10,8 @@ class DoctorsDetailsErrorState extends DoctorsDetailsStates {}
 
 class DoctorDetailChangeColor extends DoctorsDetailsStates {}
 
+class DoctorDetailChangeDate extends DoctorsDetailsStates {}
+
 
 class AppLoadingCreateUserAppointmentsState extends DoctorsDetailsStates {}
 

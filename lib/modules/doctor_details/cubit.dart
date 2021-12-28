@@ -70,4 +70,13 @@ class DoctorsDetailsCubit extends Cubit<DoctorsDetailsStates>
     colorText = isClicked ? Colors.white : const Color(0xff8C8FA5);
     emit(DoctorDetailChangeColor());
   }
+
+  DateTime selectedValue = DateTime.now();
+
+  void changeDateTime(DateTime date)
+  {
+    selectedValue = date;
+    emit(DoctorDetailChangeDate());
+  }
+
 }
