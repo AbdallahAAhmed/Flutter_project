@@ -173,7 +173,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                                             fontSize: 15,
                                           ),
                                         ),
-                                        const SizedBox(height: 8),
+                                        const SizedBox(height: 5),
                                         Text(
                                           'Dr. ${cubit.doctorDetails.data.name} is the top most cardiologist specialist in Dhaka Medical College hospital at Dhaka.He achived several award for his wonderful contribution in her own field.He is available for private consultation.',
                                           style: const TextStyle(
@@ -184,6 +184,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                    const SizedBox(height: 5),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -196,7 +197,6 @@ class DoctorDetailsScreen extends StatelessWidget {
                                             fontSize: 15,
                                           ),
                                         ),
-                                        const SizedBox(height: 15),
                                         Container(
                                           height: 85,
                                           child: DatePicker(
@@ -213,7 +213,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                                             ],
                                             onDateChange: (date) {
                                               cubit.changeDateTime(date);
-                                              //print(DateFormat('EEEE').format(cubit.selectedValue));
+                                              print(DateFormat.Md().format(cubit.selectedValue));
                                             },
                                           ),
                                         ),
@@ -272,7 +272,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                                                     doctorId: cubit
                                                         .doctorDetails.data.id,
                                                     time: '3:00 PM',
-                                                    day: DateFormat('EEEE').format(cubit.selectedValue),
+                                                    day: '${DateFormat('EEEE').format(cubit.selectedValue)} ${DateFormat.Md().format(cubit.selectedValue)}',
                                                   ),
                                                   child: Container(
                                                     height: 45,

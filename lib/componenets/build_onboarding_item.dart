@@ -1,12 +1,12 @@
-import 'package:doctorappointment/constraints.dart';
 import 'package:doctorappointment/models/on_boarding_model.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 Widget buildOnBoardingItem(BoardingModel model, dynamic controller, List list) => Column(
         children: [
           Image(
             image: AssetImage(model.image),
+            height: 250,
+            width: 250,
             fit: BoxFit.cover,
           ),
           Container(

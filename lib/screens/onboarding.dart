@@ -22,14 +22,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       image: 'assets/images/illustration.png',
     ),
     BoardingModel(
-      title: 'Chat With doctors',
-      body: 'Book an appointment with doctor.Chat \n with doctor via appoinment letter & \n get consultant.',
-      image: 'assets/images/illustration.png',
+      title: 'Book/ Schedule your Appointments',
+      body: 'Want to book an appointment no need to \n go anywhere.book and manage your \n appointment while searching of home.',
+      image: 'assets/images/illustration1.jpg',
     ),
     BoardingModel(
-      title: 'Chat With doctors',
-      body: 'Book an appointment with doctor.Chat \n with doctor via appoinment letter & \n get consultant.',
-      image: 'assets/images/illustration.png',
+      title: 'Manage Your health',
+      body: 'Manage your headlth online and get \n assistance an have to improve your health \n online with no human interaction.',
+      image: 'assets/images/illustration2.jpg',
     ),
   ];
   var boardController = PageController();
