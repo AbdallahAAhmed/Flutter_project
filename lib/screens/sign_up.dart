@@ -1,9 +1,9 @@
-import 'package:doctorappointment/componenets/show_toast.dart';
-import 'package:doctorappointment/modules/register_cubit/register_cubit.dart';
-import 'package:doctorappointment/modules/register_cubit/register_states.dart';
-import 'package:doctorappointment/screens/login.dart';
-import 'package:doctorappointment/componenets/elevate_button.dart';
-import 'package:doctorappointment/componenets/text_field.dart';
+import '../componenets/show_toast.dart';
+import '../modules/register_cubit/register_cubit.dart';
+import '../modules/register_cubit/register_states.dart';
+import 'login.dart';
+import '../componenets/elevate_button.dart';
+import '../componenets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/models/doctor_details_model.dart';
-import 'package:doctorappointment/modules/doctor_details/states.dart';
-import 'package:doctorappointment/network/remote/dio_helper.dart';
-import 'package:doctorappointment/network/remote/end_points.dart';
+import '../../constraints.dart';
+import '../../models/doctor_details_model.dart';
+import 'states.dart';
+import '../../network/remote/dio_helper.dart';
+import '../../network/remote/end_points.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

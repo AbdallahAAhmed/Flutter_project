@@ -1,14 +1,13 @@
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
-import 'package:doctorappointment/modules/app_cubit/app_states.dart';
-import 'package:doctorappointment/screens/categories.dart';
-import 'package:doctorappointment/screens/doctor_details.dart';
-import 'package:doctorappointment/screens/doctors_by_category.dart';
-import 'package:doctorappointment/screens/top_doctors_screen.dart';
-import 'package:doctorappointment/componenets/category_container.dart';
-import 'package:doctorappointment/componenets/top_doctor_card.dart';
+import '../constraints.dart';
+import '../modules/app_cubit/app_cubit.dart';
+import '../modules/app_cubit/app_states.dart';
+import '../screens/categories.dart';
+import '../screens/doctor_details.dart';
+import '../screens/doctors_by_category.dart';
+import '../screens/top_doctors_screen.dart';
+import 'category_container.dart';
+import 'top_doctor_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeList extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:doctorappointment/models/list_doctors_by_top_rate.dart';
+import 'list_doctors_by_top_rate.dart';
 
 class DoctorDetailModel 
 {

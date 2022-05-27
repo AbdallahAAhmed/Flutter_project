@@ -1,8 +1,8 @@
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
-import 'package:doctorappointment/modules/app_cubit/app_states.dart';
-import 'package:doctorappointment/screens/doctor_details.dart';
-import 'package:doctorappointment/componenets/doctor_card.dart';
+import '../constraints.dart';
+import '../modules/app_cubit/app_cubit.dart';
+import '../modules/app_cubit/app_states.dart';
+import 'doctor_details.dart';
+import '../componenets/doctor_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

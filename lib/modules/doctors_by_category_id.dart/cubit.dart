@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/models/list_doctors_by_top_rate.dart';
-import 'package:doctorappointment/modules/doctors_by_category_id.dart/states.dart';
-import 'package:doctorappointment/network/remote/dio_helper.dart';
-import 'package:doctorappointment/network/remote/end_points.dart';
+import '../../constraints.dart';
+import '../../models/list_doctors_by_top_rate.dart';
+import 'states.dart';
+import '../../network/remote/dio_helper.dart';
+import '../../network/remote/end_points.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DoctorsByCategoryIdCubit extends Cubit<DoctorsByCategoryIDStates>

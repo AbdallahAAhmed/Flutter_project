@@ -1,25 +1,21 @@
-// ignore_for_file: avoid_print
-
-import 'package:bloc/bloc.dart';
-import 'package:doctorappointment/bloc_observer.dart';
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
-import 'package:doctorappointment/modules/doctor_details/cubit.dart';
-import 'package:doctorappointment/modules/login_cubit/cubit.dart';
-import 'package:doctorappointment/modules/register_cubit/register_cubit.dart';
-import 'package:doctorappointment/network/local/cache_helper.dart';
-import 'package:doctorappointment/network/remote/dio_helper.dart';
-import 'package:doctorappointment/screens/categories.dart';
-import 'package:doctorappointment/screens/doctor_details.dart';
-import 'package:doctorappointment/screens/doctors_by_category.dart';
-import 'package:doctorappointment/screens/home.dart';
-import 'package:doctorappointment/screens/tabs_screen.dart';
-import 'package:doctorappointment/screens/login.dart';
-import 'package:doctorappointment/screens/onboarding.dart';
-import 'package:doctorappointment/screens/profile.dart';
-import 'package:doctorappointment/screens/search.dart';
-import 'package:doctorappointment/screens/sign_up.dart';
-import 'package:doctorappointment/screens/top_doctors_screen.dart';
+import 'bloc_observer.dart';
+import 'constraints.dart';
+import 'modules/app_cubit/app_cubit.dart';
+import 'modules/login_cubit/cubit.dart';
+import 'modules/register_cubit/register_cubit.dart';
+import 'network/local/cache_helper.dart';
+import 'network/remote/dio_helper.dart';
+import 'screens/categories.dart';
+import 'screens/doctor_details.dart';
+import 'screens/doctors_by_category.dart';
+import 'screens/home.dart';
+import 'screens/tabs_screen.dart';
+import 'screens/login.dart';
+import 'screens/onboarding.dart';
+import 'screens/profile.dart';
+import 'screens/search.dart';
+import 'screens/sign_up.dart';
+import 'screens/top_doctors_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,4 +1,4 @@
-import 'package:doctorappointment/constraints.dart';
+import '../constraints.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

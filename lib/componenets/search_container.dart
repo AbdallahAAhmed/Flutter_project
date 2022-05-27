@@ -1,5 +1,5 @@
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/screens/search.dart';
+import '../constraints.dart';
+import '../screens/search.dart';
 import 'package:flutter/material.dart';
 
 class SearchContainer extends StatelessWidget {

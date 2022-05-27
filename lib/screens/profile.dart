@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:doctorappointment/componenets/show_toast.dart';
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/componenets/user_appointments_card.dart';
-import 'package:doctorappointment/modules/profile_cubit/cubit.dart';
-import 'package:doctorappointment/modules/profile_cubit/states.dart';
-import 'package:doctorappointment/network/local/cache_helper.dart';
-import 'package:doctorappointment/screens/login.dart';
+import '../componenets/show_toast.dart';
+import '../constraints.dart';
+import '../componenets/user_appointments_card.dart';
+import '../modules/profile_cubit/cubit.dart';
+import '../modules/profile_cubit/states.dart';
+import '../network/local/cache_helper.dart';
+import 'login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

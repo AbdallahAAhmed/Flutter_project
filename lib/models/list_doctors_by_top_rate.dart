@@ -1,4 +1,4 @@
-import 'package:doctorappointment/models/user_categories_model.dart';
+import 'user_categories_model.dart';
 
 class TopDoctors 
 {

@@ -1,5 +1,5 @@
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/screens/doctor_details.dart';
+import '../constraints.dart';
+import '../screens/doctor_details.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

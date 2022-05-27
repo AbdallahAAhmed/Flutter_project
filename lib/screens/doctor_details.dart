@@ -1,10 +1,10 @@
-import 'package:doctorappointment/componenets/show_toast.dart';
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/componenets/calender_card.dart';
-import 'package:doctorappointment/componenets/check_appointment_time.dart';
-import 'package:doctorappointment/componenets/doctor_details_card.dart';
-import 'package:doctorappointment/modules/doctor_details/cubit.dart';
-import 'package:doctorappointment/modules/doctor_details/states.dart';
+import '../componenets/show_toast.dart';
+import '../constraints.dart';
+import '../componenets/calender_card.dart';
+import '../componenets/check_appointment_time.dart';
+import '../componenets/doctor_details_card.dart';
+import '../modules/doctor_details/cubit.dart';
+import '../modules/doctor_details/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

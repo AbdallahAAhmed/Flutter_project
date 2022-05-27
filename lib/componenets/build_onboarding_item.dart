@@ -1,4 +1,4 @@
-import 'package:doctorappointment/models/on_boarding_model.dart';
+import '../models/on_boarding_model.dart';
 import 'package:flutter/material.dart';
 
 Widget buildOnBoardingItem(BoardingModel model, dynamic controller, List list) => Column(

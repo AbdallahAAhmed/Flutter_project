@@ -1,7 +1,7 @@
-import 'package:doctorappointment/componenets/top_doctor_card.dart';
-import 'package:doctorappointment/modules/search_cubit/cubit.dart';
-import 'package:doctorappointment/modules/search_cubit/states.dart';
-import 'package:doctorappointment/screens/doctor_details.dart';
+import '../componenets/top_doctor_card.dart';
+import '../modules/search_cubit/cubit.dart';
+import '../modules/search_cubit/states.dart';
+import 'doctor_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constraints.dart';

@@ -1,6 +1,6 @@
-import 'package:doctorappointment/constraints.dart';
-import 'package:doctorappointment/modules/app_cubit/app_cubit.dart';
-import 'package:doctorappointment/modules/app_cubit/app_states.dart';
+import '../constraints.dart';
+import '../modules/app_cubit/app_cubit.dart';
+import '../modules/app_cubit/app_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
